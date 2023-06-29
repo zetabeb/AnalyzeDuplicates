@@ -11,5 +11,7 @@ namespace ZBB
             }
             return newListNames;
         }
+        public const string LETRAS = "abcdefghijklmnopqrswuvxyz";
     }
+    
 }

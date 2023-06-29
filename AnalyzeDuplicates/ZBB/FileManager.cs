@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace ZBB
 {
     public static class FileManager
@@ -51,50 +53,86 @@ namespace ZBB
             {
                 Console.WriteLine("Error al borrar archivo origen: {0}", e.ToString());
             }
-        }
-        public static List<string> ListarDirectorios(string? dir)
-        {
-            List<string> levelOneList = new List<string>();
-            List<string> list = new List<string>();
-            string[] dirs = Directory.GetDirectories(dir);
+        }        
+        public static string GetLongitud(string? dir)
+        {            
+            FileInfo file = new FileInfo(dir);
+            long longitudBytes = file.Length;            
+            float longitud = longitudBytes;
+            short veces = 0;
+            string resultado;
 
-            foreach (string subDir in dirs)
+            if (longitudBytes > 1024)
             {
-                levelOneList.Add(subDir);                
+                do
+                {
+                    longitud = longitud / 1024;
+                    veces+= 1;
+                } 
+                while (longitud > 1024);
+
+                switch (veces)
+                {
+                    case 1: resultado = longitud.ToString("0.000") + "KB"; break;
+                    case 2: resultado = longitud.ToString("0.000") + "MB"; break;
+                    case 3: resultado = longitud.ToString("0.000") + "GB"; break;
+                    case 4: resultado = longitud.ToString("0.000") + "TB"; break;
+                    default: resultado = "error"; break;
+                }
+            }                
+            else
+                resultado = longitudBytes.ToString() + "B";
+
+            return resultado;
+        }
+        public static List<DuplicateFiles> GetDuplicateFiles(string root)
+        {
+            string[] FilesList = Directory.GetFiles(root, "*", SearchOption.AllDirectories);
+            string[] FilesListCompare = Directory.GetFiles(root, "*", SearchOption.AllDirectories);
+            List<DuplicateFiles> DuplicateFilesList = new List<DuplicateFiles>();
+
+            foreach (string file in FilesList)
+            {
+                DuplicateFiles duplicateFiles = new DuplicateFiles();
+                List<string> files = new List<string>();
+
+                FileInfo file1 = new FileInfo(file);
+                string fileName = file1.Name;
+
+                files.Add(file);
+                duplicateFiles.Name = fileName;
+
+                for (int i = 0; i < FilesListCompare.Length; i++)
+                {
+                    if (FilesListCompare[i] == "") continue;
+                    FileInfo file2 = new FileInfo(FilesListCompare[i]);
+                    string fileCompareName = file2.Name;
+
+                    if (fileName == fileCompareName)
+                    {
+                        if (file != FilesListCompare[i])
+                        {
+                            files.Add(FilesListCompare[i]);
+                        }
+                        FilesListCompare[i] = "";
+                    }
+                }
+                if (files.Count > 1)
+                {
+                    duplicateFiles.Name += " (" + files.Count + ")";
+                    duplicateFiles.Files.AddRange(new List<string>(files));
+                    DuplicateFilesList.Add(duplicateFiles);
+                }
+
+                files.Clear();
             }
-
-            List<string> result = new List<string>();
-            result = levelOneList;
-            list.AddRange(result);
-            do
-            {
-                foreach (var item in result)
-                {
-                    result = GetSubDirectorio(item);
-                    list.AddRange(result);
-                }
-            } 
-            while (result.Count > 0);
-
-            return list;
+            return DuplicateFilesList;
         }
-        private static List<string> GetSubDirectorio(string? dir)
-        {
-            string[] dirs = Directory.GetDirectories(dir);
-            List<string> subDirs = new List<string>();
-            //foreach (string subDir in dirs)
-            //{
-            //    subDirs.Add(subDir);
-            //}
-            
-                foreach (string subDir in dirs)
-                {
-                    subDirs.Add(subDir);
-                    GetSubDirectorio(subDir);
-                }
-            
-            
-            return subDirs;
-        }
+
+    }
+    public class DuplicateFiles
+    {
+        public string Name { get; set; }
+        public List<string> Files { get; set; } = new List<string>();
     }
 }

@@ -1,0 +1,15 @@
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\bin\Debug\net6.0\AnalyzeDuplicates.exe
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\bin\Debug\net6.0\AnalyzeDuplicates.deps.json
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\bin\Debug\net6.0\AnalyzeDuplicates.runtimeconfig.json
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\bin\Debug\net6.0\AnalyzeDuplicates.dll
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\bin\Debug\net6.0\AnalyzeDuplicates.pdb
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\obj\Debug\net6.0\AnalyzeDuplicates.csproj.AssemblyReference.cache
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\obj\Debug\net6.0\AnalyzeDuplicates.GeneratedMSBuildEditorConfig.editorconfig
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\obj\Debug\net6.0\AnalyzeDuplicates.AssemblyInfoInputs.cache
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\obj\Debug\net6.0\AnalyzeDuplicates.AssemblyInfo.cs
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\obj\Debug\net6.0\AnalyzeDuplicates.csproj.CoreCompileInputs.cache
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\obj\Debug\net6.0\AnalyzeDuplicates.dll
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\obj\Debug\net6.0\refint\AnalyzeDuplicates.dll
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\obj\Debug\net6.0\AnalyzeDuplicates.pdb
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\obj\Debug\net6.0\AnalyzeDuplicates.genruntimeconfig.cache
+Z:\Desarrollos\AnalyzeDuplicates\AnalyzeDuplicates\obj\Debug\net6.0\ref\AnalyzeDuplicates.dll
